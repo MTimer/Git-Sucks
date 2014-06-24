@@ -1,0 +1,6 @@
+### Mac
+.DS_Store
+
+### Gitbook html files
+_book/
+gh-pages/
