@@ -1,0 +1,1063 @@
+<!DOCTYPE HTML>
+<html lang="en-US" >
+    
+    <head>
+        
+        <meta charset="UTF-8">
+        <title>git branch | 图解Git</title>
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 0.5.5">
+        <meta name="HandheldFriendly" content="true"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-status-bar-style" content="black">
+        <link rel="shortcut icon" href="../../gitbook/images/favicon.ico" type="image/x-icon">
+        
+    
+    
+    <meta name="author" content="MTimer">
+    
+    
+    <link rel="next" href="../../tutorial/git-branches/git-checkout.html" />
+    
+    
+    <link rel="prev" href="../../tutorial/git-branches/README.html" />
+    
+
+        
+    </head>
+    <body>
+        
+        
+<link rel="stylesheet" href="../../gitbook/style.css">
+
+
+        
+    <div class="book" data-github="MTimer/Git-Sucks" data-level="2.15" data-basepath="../.." data-revision="1403612792497">
+    <div class="book-header">
+    <!-- Actions Left -->
+    <a href="#" class="btn pull-left toggle-summary" aria-label="Toggle summary"><i class="fa fa-align-justify"></i></a>
+    
+    <a href="https://github.com/MTimer/Git-Sucks" target="_blank" class="btn pull-left home-bookmark" aria-label="GitHub home"><i class="fa fa-bookmark-o"></i></a>
+    
+    <a href="#" class="btn pull-left toggle-search" aria-label="Toggle search"><i class="fa fa-search"></i></a>
+    <span id="font-settings-wrapper">
+        <a href="#" class="btn pull-left toggle-font-settings" aria-label="Toggle font settings"><i class="fa fa-font"></i>
+        </a>
+        <div class="dropdown-menu font-settings">
+    <div class="dropdown-caret">
+        <span class="caret-outer"></span>
+        <span class="caret-inner"></span>
+    </div>
+
+    <div class="btn-group btn-block">
+        <button id="reduce-font-size" class="btn btn-default">A</button>
+        <button id="enlarge-font-size" class="btn btn-default">A</button>
+    </div>
+
+    <ul class="list-group font-family-list">
+        <li class="list-group-item" data-font="0">Serif</li>
+        <li class="list-group-item" data-font="1">Sans</li>
+    </ul>
+
+    <div class="btn-group btn-group-xs btn-block color-theme-list">
+        <button type="button" class="btn btn-default" id="color-theme-preview-0" data-theme="0">White</button>
+        <button type="button" class="btn btn-default" id="color-theme-preview-1" data-theme="1">Sepia</button>
+        <button type="button" class="btn btn-default" id="color-theme-preview-2" data-theme="2">Night</button>
+    </div>
+</div>
+
+    </span>
+
+    <!-- Actions Right -->
+    
+    <a href="#" target="_blank" class="btn pull-right google-plus-sharing-link sharing-link" data-sharing="google-plus" aria-label="Share on Google Plus"><i class="fa fa-google-plus"></i></a>
+    
+    
+    <a href="#" target="_blank" class="btn pull-right facebook-sharing-link sharing-link" data-sharing="facebook" aria-label="Share on Facebook"><i class="fa fa-facebook"></i></a>
+    
+    
+    <a href="#" target="_blank" class="btn pull-right twitter-sharing-link sharing-link" data-sharing="twitter" aria-label="Share on Twitter"><i class="fa fa-twitter"></i></a>
+    
+
+    
+    <a href="https://github.com/MTimer/Git-Sucks/stargazers" target="_blank" class="btn pull-right count-star hidden-xs"><i class="fa fa-star-o"></i> Star (<span>-</span>)</a>
+    <a href="https://github.com/MTimer/Git-Sucks/watchers" target="_blank" class="btn pull-right count-watch hidden-xs"><i class="fa fa-eye"></i> Watch (<span>-</span>)</a>
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-spinner fa-spin"></i>
+        <a href="../../" >图解Git</a>
+    </h1>
+</div>
+
+    
+
+<div class="book-summary">
+    <div class="book-search">
+        <input type="text" placeholder="Search" class="form-control" />
+    </div>
+    <ul class="summary">
+        
+        
+        
+        <li>
+            <a href="https://github.com/MTimer" target="blank" class="author-link">About the author</a>
+        </li>
+        
+
+        
+        
+        <li>
+            <a href="https://github.com/MTimer/Git-Sucks/issues" target="blank"class="issues-link">Questions and Issues</a>
+        </li>
+        
+
+        
+        
+        <li>
+            <a href="https://github.com/MTimer/Git-Sucks/edit/master/tutorial/git-branches/git-branch.md" target="blank" class="contribute-link">Edit and Contribute</a>
+        </li>
+        
+
+        
+        <li class="divider"></li>
+        
+
+        
+    
+        
+        <li class="chapter " data-level="0" data-path="index.html">
+            
+                
+                    <a href="../../index.html">
+                        <i class="fa fa-check"></i>
+                        
+                         Introduction
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="1" data-path="intro/README.html">
+            
+                
+                    <a href="../../intro/README.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.</b>
+                        
+                         Git 介绍
+                    </a>
+                
+            
+            
+            <ul class="articles">
+                
+    
+        
+        <li class="chapter " data-level="1.1" data-path="intro/git-2.0.html">
+            
+                
+                    <a href="../../intro/git-2.0.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.1.</b>
+                        
+                         2.0新功能
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="1.2" data-path="intro/git-install.html">
+            
+                
+                    <a href="../../intro/git-install.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.2.</b>
+                        
+                         安装
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="1.3" data-path="intro/git-trans.html">
+            
+                
+                    <a href="../../intro/git-trans.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.3.</b>
+                        
+                         英文解释
+                    </a>
+                
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="2" data-path="tutorial/README.html">
+            
+                
+                    <a href="../../tutorial/README.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.</b>
+                        
+                         Git 基础教程
+                    </a>
+                
+            
+            
+            <ul class="articles">
+                
+    
+        
+        <li class="chapter " data-level="2.1" data-path="tutorial/git-basics/README.html">
+            
+                
+                    <a href="../../tutorial/git-basics/README.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.1.</b>
+                        
+                         Git 基本命令⇩
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="2.2" data-path="tutorial/git-basics/git-init.html">
+            
+                
+                    <a href="../../tutorial/git-basics/git-init.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.2.</b>
+                        
+                         git init
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="2.3" data-path="tutorial/git-basics/git-clone.html">
+            
+                
+                    <a href="../../tutorial/git-basics/git-clone.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.3.</b>
+                        
+                         git clone
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="2.4" data-path="tutorial/git-basics/git-config.html">
+            
+                
+                    <a href="../../tutorial/git-basics/git-config.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.4.</b>
+                        
+                         git config
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="2.5" data-path="tutorial/git-basics/git-add.html">
+            
+                
+                    <a href="../../tutorial/git-basics/git-add.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.5.</b>
+                        
+                         git add
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="2.6" data-path="tutorial/git-basics/git-commit.html">
+            
+                
+                    <a href="../../tutorial/git-basics/git-commit.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.6.</b>
+                        
+                         git commit
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="2.7" data-path="tutorial/git-basics/git-status.html">
+            
+                
+                    <a href="../../tutorial/git-basics/git-status.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.7.</b>
+                        
+                         git status
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="2.8" data-path="tutorial/git-basics/git-log.html">
+            
+                
+                    <a href="../../tutorial/git-basics/git-log.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.8.</b>
+                        
+                         git log
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="2.9" data-path="tutorial/undoing-changes/README.html">
+            
+                
+                    <a href="../../tutorial/undoing-changes/README.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.9.</b>
+                        
+                         Git 撤销更改⇩
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="2.10" data-path="tutorial/undoing-changes/git-checkout.html">
+            
+                
+                    <a href="../../tutorial/undoing-changes/git-checkout.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.10.</b>
+                        
+                         git checkout
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="2.11" data-path="tutorial/undoing-changes/git-revert.html">
+            
+                
+                    <a href="../../tutorial/undoing-changes/git-revert.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.11.</b>
+                        
+                         git revert
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="2.12" data-path="tutorial/undoing-changes/git-reset.html">
+            
+                
+                    <a href="../../tutorial/undoing-changes/git-reset.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.12.</b>
+                        
+                         git reset
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="2.13" data-path="tutorial/undoing-changes/git-clean.html">
+            
+                
+                    <a href="../../tutorial/undoing-changes/git-clean.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.13.</b>
+                        
+                         git clean
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="2.14" data-path="tutorial/git-branches/README.html">
+            
+                
+                    <a href="../../tutorial/git-branches/README.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.14.</b>
+                        
+                         Git 分支⇩
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="2.15" data-path="tutorial/git-branches/git-branch.html">
+            
+                
+                    <a href="../../tutorial/git-branches/git-branch.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.15.</b>
+                        
+                         git branch
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="2.16" data-path="tutorial/git-branches/git-checkout.html">
+            
+                
+                    <a href="../../tutorial/git-branches/git-checkout.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.16.</b>
+                        
+                         git checkout
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="2.17" data-path="tutorial/git-branches/git-merge.html">
+            
+                
+                    <a href="../../tutorial/git-branches/git-merge.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.17.</b>
+                        
+                         git merge
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="2.18" data-path="tutorial/rewriting-git-history/README.html">
+            
+                
+                    <a href="../../tutorial/rewriting-git-history/README.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.18.</b>
+                        
+                         Git 重写历史⇩
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="2.19" data-path="tutorial/rewriting-git-history/git-commit-amend.html">
+            
+                
+                    <a href="../../tutorial/rewriting-git-history/git-commit-amend.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.19.</b>
+                        
+                         git commit --amend
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="2.20" data-path="tutorial/rewriting-git-history/git-rebase.html">
+            
+                
+                    <a href="../../tutorial/rewriting-git-history/git-rebase.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.20.</b>
+                        
+                         git rebase
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="2.21" data-path="tutorial/rewriting-git-history/git-rebase-i.html">
+            
+                
+                    <a href="../../tutorial/rewriting-git-history/git-rebase-i.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.21.</b>
+                        
+                         git rebase -i
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="2.22" data-path="tutorial/rewriting-git-history/git-reflog.html">
+            
+                
+                    <a href="../../tutorial/rewriting-git-history/git-reflog.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.22.</b>
+                        
+                         git reflog
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="2.23" data-path="tutorial/remote-repositories/README.html">
+            
+                
+                    <a href="../../tutorial/remote-repositories/README.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.23.</b>
+                        
+                         Git 远程仓库⇩
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="2.24" data-path="tutorial/remote-repositories/git-remote.html">
+            
+                
+                    <a href="../../tutorial/remote-repositories/git-remote.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.24.</b>
+                        
+                         git remote
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="2.25" data-path="tutorial/remote-repositories/git-fetch.html">
+            
+                
+                    <a href="../../tutorial/remote-repositories/git-fetch.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.25.</b>
+                        
+                         git fetch
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="2.26" data-path="tutorial/remote-repositories/git-pull.html">
+            
+                
+                    <a href="../../tutorial/remote-repositories/git-pull.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.26.</b>
+                        
+                         git pull
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="2.27" data-path="tutorial/remote-repositories/git-push.html">
+            
+                
+                    <a href="../../tutorial/remote-repositories/git-push.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.27.</b>
+                        
+                         git push
+                    </a>
+                
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="3" data-path="workflows/README.html">
+            
+                
+                    <a href="../../workflows/README.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.</b>
+                        
+                         Git 工作流
+                    </a>
+                
+            
+            
+            <ul class="articles">
+                
+    
+        
+        <li class="chapter " data-level="3.1" data-path="workflows/workflow-centralized.html">
+            
+                
+                    <a href="../../workflows/workflow-centralized.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.1.</b>
+                        
+                         Centralized Workflow
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="3.2" data-path="workflows/workflow-feature-branch.html">
+            
+                
+                    <a href="../../workflows/workflow-feature-branch.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.2.</b>
+                        
+                         Feature Branch Workflow
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="3.3" data-path="workflows/workflow-gitflow.html">
+            
+                
+                    <a href="../../workflows/workflow-gitflow.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.3.</b>
+                        
+                         Gitflow Workflow
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="3.4" data-path="workflows/workflow-forking.html">
+            
+                
+                    <a href="../../workflows/workflow-forking.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.4.</b>
+                        
+                         Forking Workflow
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="3.5" data-path="workflows/pull-request.html">
+            
+                
+                    <a href="../../workflows/pull-request.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.5.</b>
+                        
+                         Pull Requests
+                    </a>
+                
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="4" data-path="migration/README.html">
+            
+                
+                    <a href="../../migration/README.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>4.</b>
+                        
+                         迁移到 Git
+                    </a>
+                
+            
+            
+            <ul class="articles">
+                
+    
+        
+        <li class="chapter " data-level="4.1" data-path="migration/migration-prepare.html">
+            
+                
+                    <a href="../../migration/migration-prepare.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>4.1.</b>
+                        
+                         准备
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="4.2" data-path="migration/migration-convert.html">
+            
+                
+                    <a href="../../migration/migration-convert.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>4.2.</b>
+                        
+                         转换
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="4.3" data-path="migration/migration-synchronize.html">
+            
+                
+                    <a href="../../migration/migration-synchronize.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>4.3.</b>
+                        
+                         同步
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="4.4" data-path="migration/migration-share.html">
+            
+                
+                    <a href="../../migration/migration-share.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>4.4.</b>
+                        
+                         共享
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="4.5" data-path="migration/migration-migrate.html">
+            
+                
+                    <a href="../../migration/migration-migrate.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>4.5.</b>
+                        
+                         迁移
+                    </a>
+                
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="5" data-path="resources/README.html">
+            
+                
+                    <a href="../../resources/README.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>5.</b>
+                        
+                         Git 进阶教程
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="6" data-path="sos/README.html">
+            
+                
+                    <a href="../../sos/README.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>6.</b>
+                        
+                         Git 救急
+                    </a>
+                
+            
+            
+        </li>
+    
+
+
+        
+        <li class="divider"></li>
+        <li>
+            <a href="http://www.gitbook.io/" target="blank" class="gitbook-link">Generated using GitBook</a>
+        </li>
+        
+    </ul>
+</div>
+
+    <div class="book-body">
+        <div class="body-inner">
+            <div class="page-wrapper" tabindex="-1">
+                <div class="book-progress">
+    <div class="bar">
+        <div class="inner" style="width: 26.08695652173913%;min-width: 23.91304347826087%;"></div>
+    </div>
+    <div class="chapters">
+    
+        <a href="../../index.html" title="Introduction" class="chapter done new-chapter" data-progress="0" style="left: 0%;"></a>
+    
+        <a href="../../intro/README.html" title="Git 介绍" class="chapter done new-chapter" data-progress="1" style="left: 2.1739130434782608%;"></a>
+    
+        <a href="../../intro/git-2.0.html" title="2.0新功能" class="chapter done " data-progress="1.1" style="left: 4.3478260869565215%;"></a>
+    
+        <a href="../../intro/git-install.html" title="安装" class="chapter done " data-progress="1.2" style="left: 6.521739130434782%;"></a>
+    
+        <a href="../../intro/git-trans.html" title="英文解释" class="chapter done " data-progress="1.3" style="left: 8.695652173913043%;"></a>
+    
+        <a href="../../tutorial/README.html" title="Git 基础教程" class="chapter done new-chapter" data-progress="2" style="left: 10.869565217391305%;"></a>
+    
+        <a href="../../tutorial/git-basics/README.html" title="Git 基本命令⇩" class="chapter done " data-progress="2.1" style="left: 13.043478260869565%;"></a>
+    
+        <a href="../../tutorial/undoing-changes/git-checkout.html" title="git checkout" class="chapter done " data-progress="2.10" style="left: 15.217391304347826%;"></a>
+    
+        <a href="../../tutorial/undoing-changes/git-revert.html" title="git revert" class="chapter done " data-progress="2.11" style="left: 17.391304347826086%;"></a>
+    
+        <a href="../../tutorial/undoing-changes/git-reset.html" title="git reset" class="chapter done " data-progress="2.12" style="left: 19.565217391304348%;"></a>
+    
+        <a href="../../tutorial/undoing-changes/git-clean.html" title="git clean" class="chapter done " data-progress="2.13" style="left: 21.73913043478261%;"></a>
+    
+        <a href="../../tutorial/git-branches/README.html" title="Git 分支⇩" class="chapter done " data-progress="2.14" style="left: 23.91304347826087%;"></a>
+    
+        <a href="../../tutorial/git-branches/git-branch.html" title="git branch" class="chapter done " data-progress="2.15" style="left: 26.08695652173913%;"></a>
+    
+        <a href="../../tutorial/git-branches/git-checkout.html" title="git checkout" class="chapter  " data-progress="2.16" style="left: 28.26086956521739%;"></a>
+    
+        <a href="../../tutorial/git-branches/git-merge.html" title="git merge" class="chapter  " data-progress="2.17" style="left: 30.434782608695652%;"></a>
+    
+        <a href="../../tutorial/rewriting-git-history/README.html" title="Git 重写历史⇩" class="chapter  " data-progress="2.18" style="left: 32.608695652173914%;"></a>
+    
+        <a href="../../tutorial/rewriting-git-history/git-commit-amend.html" title="git commit --amend" class="chapter  " data-progress="2.19" style="left: 34.78260869565217%;"></a>
+    
+        <a href="../../tutorial/git-basics/git-init.html" title="git init" class="chapter  " data-progress="2.2" style="left: 36.95652173913044%;"></a>
+    
+        <a href="../../tutorial/rewriting-git-history/git-rebase.html" title="git rebase" class="chapter  " data-progress="2.20" style="left: 39.130434782608695%;"></a>
+    
+        <a href="../../tutorial/rewriting-git-history/git-rebase-i.html" title="git rebase -i" class="chapter  " data-progress="2.21" style="left: 41.30434782608695%;"></a>
+    
+        <a href="../../tutorial/rewriting-git-history/git-reflog.html" title="git reflog" class="chapter  " data-progress="2.22" style="left: 43.47826086956522%;"></a>
+    
+        <a href="../../tutorial/remote-repositories/README.html" title="Git 远程仓库⇩" class="chapter  " data-progress="2.23" style="left: 45.65217391304348%;"></a>
+    
+        <a href="../../tutorial/remote-repositories/git-remote.html" title="git remote" class="chapter  " data-progress="2.24" style="left: 47.82608695652174%;"></a>
+    
+        <a href="../../tutorial/remote-repositories/git-fetch.html" title="git fetch" class="chapter  " data-progress="2.25" style="left: 50%;"></a>
+    
+        <a href="../../tutorial/remote-repositories/git-pull.html" title="git pull" class="chapter  " data-progress="2.26" style="left: 52.17391304347826%;"></a>
+    
+        <a href="../../tutorial/remote-repositories/git-push.html" title="git push" class="chapter  " data-progress="2.27" style="left: 54.34782608695652%;"></a>
+    
+        <a href="../../tutorial/git-basics/git-clone.html" title="git clone" class="chapter  " data-progress="2.3" style="left: 56.52173913043478%;"></a>
+    
+        <a href="../../tutorial/git-basics/git-config.html" title="git config" class="chapter  " data-progress="2.4" style="left: 58.69565217391305%;"></a>
+    
+        <a href="../../tutorial/git-basics/git-add.html" title="git add" class="chapter  " data-progress="2.5" style="left: 60.869565217391305%;"></a>
+    
+        <a href="../../tutorial/git-basics/git-commit.html" title="git commit" class="chapter  " data-progress="2.6" style="left: 63.04347826086956%;"></a>
+    
+        <a href="../../tutorial/git-basics/git-status.html" title="git status" class="chapter  " data-progress="2.7" style="left: 65.21739130434783%;"></a>
+    
+        <a href="../../tutorial/git-basics/git-log.html" title="git log" class="chapter  " data-progress="2.8" style="left: 67.3913043478261%;"></a>
+    
+        <a href="../../tutorial/undoing-changes/README.html" title="Git 撤销更改⇩" class="chapter  " data-progress="2.9" style="left: 69.56521739130434%;"></a>
+    
+        <a href="../../workflows/README.html" title="Git 工作流" class="chapter  new-chapter" data-progress="3" style="left: 71.73913043478261%;"></a>
+    
+        <a href="../../workflows/workflow-centralized.html" title="Centralized Workflow" class="chapter  " data-progress="3.1" style="left: 73.91304347826087%;"></a>
+    
+        <a href="../../workflows/workflow-feature-branch.html" title="Feature Branch Workflow" class="chapter  " data-progress="3.2" style="left: 76.08695652173913%;"></a>
+    
+        <a href="../../workflows/workflow-gitflow.html" title="Gitflow Workflow" class="chapter  " data-progress="3.3" style="left: 78.26086956521739%;"></a>
+    
+        <a href="../../workflows/workflow-forking.html" title="Forking Workflow" class="chapter  " data-progress="3.4" style="left: 80.43478260869566%;"></a>
+    
+        <a href="../../workflows/pull-request.html" title="Pull Requests" class="chapter  " data-progress="3.5" style="left: 82.6086956521739%;"></a>
+    
+        <a href="../../migration/README.html" title="迁移到 Git" class="chapter  new-chapter" data-progress="4" style="left: 84.78260869565217%;"></a>
+    
+        <a href="../../migration/migration-prepare.html" title="准备" class="chapter  " data-progress="4.1" style="left: 86.95652173913044%;"></a>
+    
+        <a href="../../migration/migration-convert.html" title="转换" class="chapter  " data-progress="4.2" style="left: 89.1304347826087%;"></a>
+    
+        <a href="../../migration/migration-synchronize.html" title="同步" class="chapter  " data-progress="4.3" style="left: 91.30434782608695%;"></a>
+    
+        <a href="../../migration/migration-share.html" title="共享" class="chapter  " data-progress="4.4" style="left: 93.47826086956522%;"></a>
+    
+        <a href="../../migration/migration-migrate.html" title="迁移" class="chapter  " data-progress="4.5" style="left: 95.65217391304348%;"></a>
+    
+        <a href="../../resources/README.html" title="Git 进阶教程" class="chapter  new-chapter" data-progress="5" style="left: 97.82608695652173%;"></a>
+    
+        <a href="../../sos/README.html" title="Git 救急" class="chapter  new-chapter" data-progress="6" style="left: 100%;"></a>
+    
+    </div>
+</div>
+
+                <div class="page-inner">
+                
+                </div>
+            </div>
+        </div>
+
+        
+        <a href="../../tutorial/git-branches/README.html" class="navigation navigation-prev " aria-label="Previous page: Git 分支⇩"><i class="fa fa-angle-left"></i></a>
+        
+        
+        <a href="../../tutorial/git-branches/git-checkout.html" class="navigation navigation-next " aria-label="Next page: git checkout"><i class="fa fa-angle-right"></i></a>
+        
+    </div>
+</div>
+
+        
+<script src="../../gitbook/jsrepl/jsrepl.js" id="jsrepl-script"></script>
+<script src="../../gitbook/app.js"></script>
+
+    
+    <script src="http://cdn.mathjax.org/mathjax/2.0-latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+
+    
+    <script src="../../gitbook/plugins/gitbook-plugin-mathjax/plugin.js"></script>
+    
+
+    
+    <script src="../../gitbook/plugins/gitbook-plugin-livereload/plugin.js"></script>
+    
+
+<script>
+require(["gitbook"], function(gitbook) {
+    var config = {};
+    gitbook.start(config);
+});
+</script>
+
+        
+    </body>
+    
+</html>
