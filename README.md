@@ -14,7 +14,7 @@
  2. 为何选择此英文原版？ 原著的英文单词浅显易懂，也是必须要掌握的，全程配以图示和案例以及介绍如何从SVN迁移到Git，绝对是Git入门绝佳教程。也因此本中文教程不翻译关键英文单词，保持原汁原味。
  3. 你将遇到的英文单词[解释](intro/git-trans.md)。
  4. 为什么叫 Git Sucks? Git很棒，可是需要花时间去学，Sucks!
- 5. 遇到麻烦？简版救急[点此](sos/README.md)，『图解Git』完整版 [在线阅读](http://MTimer.git.io/Git-Sucks)，顺便做了英文版 [Make the Switch to Git](http://MTimer.git.io/Make-the-Switch-to-Git)。
+ 5. 遇到麻烦？简版救急[点此](sos/README.md)，『图解Git』完整版 [在线阅读](http://MTimer.github.io/Git-Sucks)，顺便做了英文版 [Make the Switch to Git](http://MTimer.github.io/Make-the-Switch-to-Git)。
 
 ![从SVN转到Git](https://gp1.wac.edgecastcdn.net/8029C4/wac-small/wac/landing/git/pageSections/0/contentColumnTwo/0/imageBinary/git_home.png)
 
